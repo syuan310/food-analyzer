@@ -1,0 +1,10 @@
+<svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer Circle -->
+  <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="6"/>
+  <!-- Inner Circle (Plate) -->
+  <circle cx="50" cy="50" r="32" stroke="currentColor" stroke-width="5"/>
+  <!-- Fork -->
+  <path d="M35 30V45C35 48.3137 32.3137 51 29 51C25.6863 51 23 48.3137 23 45V30M29 51V70M27 30V40M31 30V40" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+  <!-- Checkmark -->
+  <path d="M45 52L55 62L75 42" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
