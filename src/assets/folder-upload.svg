@@ -35,19 +35,19 @@
     </linearGradient>
   </defs>
   <!-- Back panel -->
-  <path d="M96.01,22.88v-2.88c0-2.92-2.36-5.28-5.28-5.28h-28.22v-3.87c0-2.41-1.95-4.36-4.36-4.36H13.4c-2.41,0-4.36,1.95-4.36,4.36v57.44c0,3.06,2.48,5.54,5.54,5.54h79.84c3.06,0,5.54-2.48,5.54-5.54V28.26c0-2.53-1.66-4.66-3.95-5.38Z" fill="url(#tabGradient)" filter="url(#folderCombinedEffect)"/>
+  <path d="M96.01,23.26v-2.88c0-2.92-2.36-5.28-5.28-5.28h-28.22v-3.87c0-2.41-1.95-4.36-4.36-4.36H13.4c-2.41,0-4.36,1.95-4.36,4.36v57.44c0,3.06,2.48,5.54,5.54,5.54h79.84c3.06,0,5.54-2.48,5.54-5.54V28.64c0-2.53-1.66-4.66-3.95-5.38Z" fill="url(#tabGradient)" filter="url(#folderCombinedEffect)"/>
   <!-- Top Tab -->
-  <path d="M90.72,14.72h-28.22v-3.87c0-2.41-1.95-4.36-4.36-4.36H13.4c-2.41,0-4.36,1.95-4.36,4.36v27.95c0,2.92,2.36,5.28,5.28,5.28h76.4c2.92,0,5.28-2.36,5.28-5.28v-18.8c0-2.92-2.36-5.28-5.28-5.28Z" fill="url(#tabGradient)" filter="url(#materialTextureOnly)"/>
+  <path d="M90.72,15.09h-28.22v-3.87c0-2.41-1.95-4.36-4.36-4.36H13.4c-2.41,0-4.36,1.95-4.36,4.36v27.95c0,2.92,2.36,5.28,5.28,5.28h76.4c2.92,0,5.28-2.36,5.28-5.28v-18.8c0-2.92-2.36-5.28-5.28-5.28Z" fill="url(#tabGradient)" filter="url(#materialTextureOnly)"/>
   <!-- Front panel -->
-  <path d="M94.32,22.62h-31.56l-9.95,6.96H14.58c-3.06,0-5.54,2.48-5.54,5.54v33.16c0,3.06,2.48,5.54,5.54,5.54h79.84c3.06,0,5.54-2.48,5.54-5.54V28.26c0-3.11-2.52-5.64-5.64-5.64Z" fill="url(#frontGradient)" filter="url(#materialTextureOnly)"/>
+  <path d="M94.32,23h-31.56l-9.95,6.96H14.58c-3.06,0-5.54,2.48-5.54,5.54v33.16c0,3.06,2.48,5.54,5.54,5.54h79.84c3.06,0,5.54-2.48,5.54-5.54V28.64c0-3.11-2.52-5.64-5.64-5.64Z" fill="url(#frontGradient)" filter="url(#materialTextureOnly)"/>
   <!-- Top highlight line on front panel -->
-  <path d="M94.32,23.12h-31.56l-9.95,6.96H14.58" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
+  <path d="M94.32,23.5h-31.56l-9.95,6.96H14.58" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
 
 
-  <text transform="translate(17.91 55.01)" font-family="'Inter', sans-serif" font-size="10" font-weight="400">
+  <text transform="translate(17.91 55.39)" font-family="'Inter', sans-serif" font-size="10" font-weight="400">
     <tspan x="0" y="0">Upload Image</tspan>
   </text>
-  <text transform="translate(17.91 65.01)" font-family="'Inter', sans-serif" font-size="6" font-weight="400">
+  <text transform="translate(17.91 65.39)" font-family="'Inter', sans-serif" font-size="6" font-weight="400">
     <tspan x="0" y="0">Click to select</tspan>
   </text>
 </svg>

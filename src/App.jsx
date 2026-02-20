@@ -61,7 +61,6 @@ function App() {
             - carbs_g (number)
             - error_range (string)
             - estimation_logic (string, 說明預估的邏輯)
-            
             不要輸出任何解釋文字或 Markdown code block，只要純 JSON。` },
             { inline_data: { mime_type: mimeType, data: base64Data } }
           ]
@@ -94,7 +93,7 @@ function App() {
       const content = await callGemini();
 
       try {
-        const cleanContent = content.replace(/```json\n?|\n?```/g, '').trim();
+        const cleanContent = content.replace(/```json\n ?|\n ? ```/g, '').trim();
         const parsedResult = JSON.parse(cleanContent);
         setResult(parsedResult);
       } catch (parseErr) {
@@ -115,7 +114,11 @@ function App() {
       <div className="app-logo">Food Analyzer</div>
 
       <main className="main-content">
-        <ImageUpload image={image} onImageChange={setImage} />
+        <ImageUpload
+          image={image}
+          onImageChange={setImage}
+          isLoading={loading}
+        />
 
         <Controls
           fistWidth={fistWidth}

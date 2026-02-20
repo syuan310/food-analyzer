@@ -123,131 +123,118 @@ body {
   justify-content: center;
 }
 
-/* Folder Display */
-.folder-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.folder-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.folder-svg-container {
-  width: 100%;
-  height: auto;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.folder-svg-container svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible;
-}
-
-/* Fade in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Tilted Group Wrapper - Holds image part and button separately */
-/* IMPORTANT: This wrapper is NOT tilted. Only internal elements are. */
-.tilted-group-wrapper {
+/* Seamless Transition Container */
+.seamless-container {
   position: relative;
   width: 100%;
-}
-
-/* Image Part inside SVG - This is what tilts */
-.folder-svg-container svg g[clip-path] {
-  transform-origin: 54.5px 30px;
-  /* Center point of the square area in SVG */
-  transform: rotate(10deg) translateX(-2px);
-  transition: all 0.3s ease;
-}
-
-/* Remove button - Tilted to match the image */
-.remove-btn {
-  position: absolute;
-  /* Placed visually on the tilted photo corner */
-  top: 72px;
-  right: 122px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  color: var(--text-primary);
-  border: none;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
+  max-width: 400px;
+  /* Use aspect ratio instead of fixed height for responsive scaling */
+  aspect-ratio: 400 / 320;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  /* Unified shadow direction (bottom-right) */
-  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15), 2px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-  z-index: 100;
-  /* Rotate button to match image tilt */
-  transform: rotate(10deg);
 }
 
-.remove-btn:hover {
-  background: white;
-  transform: rotate(10deg) scale(1.1);
-  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), 3px 3px 8px rgba(0, 0, 0, 0.1);
+/* Folder Display - Default State */
+.folder-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  z-index: 1;
 }
 
-/* Breathing hover animation */
-@keyframes breathe {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.03);
-  }
+.folder-display.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
 }
 
-.computer-container:hover .folder-svg,
-.computer-container:hover .folder-svg-container svg {
-  animation: breathe 2s ease-in-out infinite;
+/* Uploaded Image Container - Active State */
+.uploaded-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* Uploaded Image Container */
+.uploaded-image-container.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
 .computer-container.has-image {
   cursor: default;
-}
-
-.uploaded-image-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .folder-with-image-wrapper {
   position: relative;
   width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tilted-group-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folder-svg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Close/Remove Button Styling */
+.remove-btn {
+  position: absolute;
+  top: 11%;
+  right: 25%;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  color: #8E8E93;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 20;
+  padding: 0;
+  line-height: 1;
+}
+
+.remove-btn:hover {
+  background: #f2f2f7;
+  color: #3A3A3C;
+  transform: scale(1.1);
 }
 
 /* Floating Input Elements */

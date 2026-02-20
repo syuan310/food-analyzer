@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import folderUploadSvg from '../assets/folder-upload.svg';
 import folderWithImageSvg from '../assets/folder-with-image.svg';
 
-function ImageUpload({ image, onImageChange }) {
+function ImageUpload({ image, onImageChange, isLoading }) {
     const fileInputRef = useRef(null);
     const svgContainerRef = useRef(null);
     const [svgLoaded, setSvgLoaded] = useState(false);
@@ -42,9 +42,15 @@ function ImageUpload({ image, onImageChange }) {
         }
     };
 
+    const triggerFileUpload = () => {
+        if (!image && fileInputRef.current) {
+            fileInputRef.current.click();
+        }
+    };
+
     // Load SVG and inject image when available
     useEffect(() => {
-        if (image && svgContainerRef.current) {
+        if (image) {
             // Fetch the SVG file
             fetch(folderWithImageSvg)
                 .then(response => response.text())
@@ -60,15 +66,30 @@ function ImageUpload({ image, onImageChange }) {
                     }
 
                     // Inject the modified SVG into the container
-                    svgContainerRef.current.innerHTML = '';
-                    svgContainerRef.current.appendChild(svgDoc.documentElement);
-                    setSvgLoaded(true);
+                    if (svgContainerRef.current) {
+                        svgContainerRef.current.innerHTML = '';
+                        svgContainerRef.current.appendChild(svgDoc.documentElement);
+                        setSvgLoaded(true);
+                    }
                 })
                 .catch(error => {
                     console.error('Error loading SVG:', error);
                 });
         }
     }, [image]);
+
+    // Toggle internal SVG scanning beam visibility
+    useEffect(() => {
+        if (svgContainerRef.current) {
+            const svg = svgContainerRef.current.querySelector('svg');
+            if (svg) {
+                const beamGroup = svg.getElementById('scan-beam-group');
+                if (beamGroup) {
+                    beamGroup.style.display = isLoading ? 'block' : 'none';
+                }
+            }
+        }
+    }, [isLoading, svgLoaded]);
 
     return (
         <div className="computer-wrapper">
@@ -82,24 +103,29 @@ function ImageUpload({ image, onImageChange }) {
 
             <div
                 className={`computer-container ${image ? 'has-image' : ''}`}
-                onClick={() => !image && fileInputRef.current.click()}
+                onClick={triggerFileUpload}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
             >
-                {!image ? (
-                    <div className="folder-display">
+                <div className="seamless-container">
+                    {/* State 1: Empty Folder (Always rendered, fades out) */}
+                    <div className={`folder-display ${image ? 'hidden' : ''}`}>
                         <img src={folderUploadSvg} alt="Upload" className="folder-svg" />
                     </div>
-                ) : (
-                    <div className="uploaded-image-container">
+
+                    {/* State 2: Uploaded Image (Always rendered, fades in) */}
+                    <div className={`uploaded-image-container ${image ? 'visible' : ''}`}>
                         <div className="folder-with-image-wrapper">
                             <div className="tilted-group-wrapper">
                                 <div ref={svgContainerRef} className="folder-svg-container"></div>
-                                <button className="remove-btn" onClick={removeImage}>✕</button>
+                                {image && (
+                                    <button className="remove-btn" onClick={removeImage}>✕</button>
+                                )}
                             </div>
                         </div>
                     </div>
-                )}
+
+                </div>
             </div>
         </div>
     );

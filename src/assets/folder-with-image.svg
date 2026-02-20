@@ -36,6 +36,11 @@
       <stop offset="0%" style="stop-color:#f2c94c" />
       <stop offset="100%" style="stop-color:#e6b93f" />
     </linearGradient>
+    <linearGradient id="scanGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="5%" stop-color="#ffffff" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
   </defs>
   <!-- Back panel -->
   <path d="M96.01,23.26v-2.88c0-2.92-2.36-5.28-5.28-5.28h-28.22v-3.87c0-2.41-1.95-4.36-4.36-4.36H13.4c-2.41,0-4.36,1.95-4.36,4.36v57.44c0,3.06,2.48,5.54,5.54,5.54h79.84c3.06,0,5.54-2.48,5.54-5.54V28.64c0-2.53-1.66-4.66-3.95-5.38Z" fill="url(#tabGradient)" filter="url(#folderCombinedEffect)"/>
@@ -55,6 +60,21 @@
     <g clip-path="url(#clippath)">
       <!-- Dynamic image placeholder - will be replaced by user's uploaded image -->
       <image id="user-uploaded-image" width="300" height="168" transform="translate(1.8 .49) scale(.35)" xlink:href="" preserveAspectRatio="xMidYMid slice"/>
+    </g>
+    <!-- Internal Scanning Beam: White line (top) + trailing gradient (below) -->
+    <g id="scan-beam-group" clip-path="url(#clippath)" style="display: none;">
+      <g id="scan-beam-animation-group">
+        <rect id="scan-beam-rect" x="25.5" y="0" width="58" height="20" fill="url(#scanGradient)" />
+        <line x1="25.5" y1="0" x2="83.5" y2="0" stroke="white" stroke-width="0.2" />
+        <animateTransform 
+          attributeName="transform" 
+          type="translate" 
+          repeatCount="indefinite" 
+          dur="3.5s"
+          values="0 -20; 0 60; 0 -20"
+          keyTimes="0; 0.5; 1"
+        />
+      </g>
     </g>
   </g>
   <!-- Front panel -->
