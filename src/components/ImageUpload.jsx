@@ -108,23 +108,21 @@ function ImageUpload({ image, onImageChange, isLoading }) {
                 onDrop={handleDrop}
             >
                 <div className="seamless-container">
-                    {/* State 1: Empty Folder (Always rendered, fades out) */}
-                    <div className={`folder-display ${image ? 'hidden' : ''}`}>
-                        <img src={folderUploadSvg} alt="Upload" className="folder-svg" />
-                    </div>
-
-                    {/* State 2: Uploaded Image (Always rendered, fades in) */}
-                    <div className={`uploaded-image-container ${image ? 'visible' : ''}`}>
-                        <div className="folder-with-image-wrapper">
-                            <div className="tilted-group-wrapper">
-                                <div ref={svgContainerRef} className="folder-svg-container"></div>
-                                {image && (
-                                    <button className="remove-btn" onClick={removeImage}>✕</button>
-                                )}
-                            </div>
+                    <div className="tilted-group-wrapper">
+                        {/* State 1: Empty Folder (Always rendered, fades out) */}
+                        <div className={`folder-display ${image ? 'hidden' : ''}`}>
+                            <img src={folderUploadSvg} alt="Upload" className="folder-svg" />
                         </div>
-                    </div>
 
+                        {/* State 2: Uploaded Image (Always rendered, fades in) */}
+                        <div className={`uploaded-image-container ${image ? 'visible' : ''}`}>
+                            <div ref={svgContainerRef} className="folder-svg-container"></div>
+                        </div>
+
+                        {image && (
+                            <button className="remove-btn" onClick={removeImage}>✕</button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
