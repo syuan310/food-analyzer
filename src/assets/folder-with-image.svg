@@ -62,7 +62,7 @@
       <image id="user-uploaded-image" width="300" height="168" transform="translate(1.8 .49) scale(.35)" xlink:href="" preserveAspectRatio="xMidYMid slice"/>
     </g>
     <!-- Internal Scanning Beam: White line (top) + trailing gradient (below) -->
-    <g id="scan-beam-group" clip-path="url(#clippath)" style="display: none;">
+    <g id="scan-beam-group" clip-path="url(#clippath)">
       <g id="scan-beam-animation-group">
         <rect id="scan-beam-rect" x="25.5" y="0" width="58" height="20" fill="url(#scanGradient)" />
         <line x1="25.5" y1="0" x2="83.5" y2="0" stroke="white" stroke-width="0.2" />

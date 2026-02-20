@@ -240,12 +240,12 @@ body {
 
 /* Hide scan beam by default via CSS */
 #scan-beam-group {
-  display: none;
+  display: none !important;
 }
 
 /* Show scan beam when parent has is-loading class */
 .computer-container.is-loading #scan-beam-group {
-  display: block;
+  display: block !important;
 }
 
 /* Close/Remove Button Styling */
