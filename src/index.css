@@ -165,6 +165,25 @@ body {
   display: block;
   object-fit: contain;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  transition: transform 2s ease-in-out;
+}
+
+/* Breathing hover animation */
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.computer-container:hover .folder-svg,
+.computer-container:hover .folder-svg-container svg {
+  animation: breathe 2s ease-in-out infinite;
 }
 
 /* Uploaded Image Container - Active State */
