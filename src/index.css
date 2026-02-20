@@ -238,6 +238,16 @@ body {
   /* preserveAspectRatio is handled in SVG but ensure CSS doesn't override */
 }
 
+/* Hide scan beam by default via CSS */
+#scan-beam-group {
+  display: none;
+}
+
+/* Show scan beam when parent has is-loading class */
+.computer-container.is-loading #scan-beam-group {
+  display: block;
+}
+
 /* Close/Remove Button Styling */
 .remove-btn {
   position: absolute;

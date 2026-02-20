@@ -70,7 +70,7 @@
           attributeName="transform" 
           type="translate" 
           repeatCount="indefinite" 
-          dur="3.5s"
+          dur="3s"
           values="0 -20; 0 60; 0 -20"
           keyTimes="0; 0.5; 1"
         />

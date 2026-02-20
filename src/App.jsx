@@ -90,6 +90,8 @@ function App() {
     setResult(null);
 
     try {
+      // Small delay to ensure React paints the loading state and CSS animation starts
+      await new Promise(resolve => setTimeout(resolve, 50));
       const content = await callGemini();
 
       try {

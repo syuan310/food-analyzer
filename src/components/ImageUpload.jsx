@@ -78,18 +78,6 @@ function ImageUpload({ image, onImageChange, isLoading }) {
         }
     }, [image]);
 
-    // Toggle internal SVG scanning beam visibility
-    useEffect(() => {
-        if (svgContainerRef.current) {
-            const svg = svgContainerRef.current.querySelector('svg');
-            if (svg) {
-                const beamGroup = svg.getElementById('scan-beam-group');
-                if (beamGroup) {
-                    beamGroup.style.display = isLoading ? 'block' : 'none';
-                }
-            }
-        }
-    }, [isLoading, svgLoaded]);
 
     return (
         <div className="computer-wrapper">
@@ -102,7 +90,7 @@ function ImageUpload({ image, onImageChange, isLoading }) {
             />
 
             <div
-                className={`computer-container ${image ? 'has-image' : ''}`}
+                className={`computer-container ${image ? 'has-image' : ''} ${isLoading ? 'is-loading' : ''}`}
                 onClick={triggerFileUpload}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
